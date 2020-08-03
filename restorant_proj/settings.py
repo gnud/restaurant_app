@@ -37,8 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party apps
+    'rest_framework',
+
+    # Project apps
     'restaraunt_api.apps.RestarauntApiConfig',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += 'django_extensions',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
