@@ -32,6 +32,7 @@ class Order(models.Model):
         on_delete=models.CASCADE
     )
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product)
 
     def __str__(self):
         return f'order-{self.pk}'
