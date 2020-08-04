@@ -34,4 +34,5 @@ class OrderSerializer(serializers.ModelSerializer):
             'user',
             'company',
             'products',
+            'date_ordered',
         ]
