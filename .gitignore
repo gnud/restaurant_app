@@ -107,7 +107,7 @@ media/
 *.db
 *.pid
 
-.idea/**
+**/.idea/**
 .directory
 templates/
 **/static/**
