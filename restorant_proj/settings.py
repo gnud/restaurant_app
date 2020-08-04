@@ -99,9 +99,13 @@ WSGI_APPLICATION = 'restorant_proj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE_NAME', 'restorant'),
+        'USER': os.environ.get('DATABASE_USER', 'appuser'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'c1c2c3c4!c%1'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': os.environ.get('DATABASE_PORT', '5455'),
+    },
 }
 
 
