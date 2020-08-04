@@ -12,6 +12,7 @@ class ProductSerializer(PrimaryKeyRelatedField, serializers.ModelSerializer):
             'name',
             'price',
             'menu',
+            'pk',
         ]
 
 
@@ -29,6 +30,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = [
+            'pk',
             'user',
             'company',
             'products',
