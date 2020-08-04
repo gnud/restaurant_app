@@ -1,11 +1,16 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from restaraunt_api.models import Menu, Company
+from restaraunt_api.models import Menu, Company, Product
 
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
     pass
 
 
