@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'rest_framework',
+    'rest_framework.authtoken',
 
     # Project apps
     'restaraunt_api.apps.RestarauntApiConfig',
@@ -131,3 +132,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'restaraunt_api.User'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # Django admin + DRF API browser
+        'rest_framework.authentication.SessionAuthentication',
+        # API only
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
