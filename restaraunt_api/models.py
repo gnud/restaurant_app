@@ -1,3 +1,4 @@
+from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.db import models
 from django.conf import settings
 
@@ -36,3 +37,26 @@ class Order(models.Model):
 
     def __str__(self):
         return f'order-{self.pk}'
+
+
+# region Django overrides
+class User(AbstractUser, PermissionsMixin):
+    """
+    Overriding tbe base user model to allow further customization
+    https://docs.djangoproject.com/en/3.0/topics/auth/customizing/
+    """
+
+    # Needed to override in order to generate unique constraints to avoid clash with auth app
+    is_superuser = models.BooleanField(
+        default=False,
+        help_text='Designates that this user has all permissions without explicitly assigning them.',
+        verbose_name='superuser status'
+    )
+
+    def __str__(self):
+        """
+        Just to change something
+        """
+
+        return f'{self.email} [+]'
+# endregion
