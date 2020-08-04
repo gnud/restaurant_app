@@ -3,7 +3,7 @@
 First we start by cloning the project's repo
 
 ```
-git clone {TODO ADD URL}
+git clone https://github.com/gnud/restaurant_app.git
 ```
 
 now, cd into our project
