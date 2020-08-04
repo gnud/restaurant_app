@@ -80,7 +80,7 @@ celerybeat-schedule
 *.sage.py
 
 # dotenv
-.env
+restorant_proj/.env
 
 # virtualenv
 .venv
@@ -110,3 +110,5 @@ media/
 .idea/**
 .directory
 templates/
+**/static/**
+**/upload/**

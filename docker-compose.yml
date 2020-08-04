@@ -1,0 +1,35 @@
+version: '3.2'
+
+services:
+  # This is the Postgres database
+  pg-db:
+    image: postgres
+    ports:
+      - "5455:5432"
+    volumes:
+      - restorant-db-data:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=c1c2c3c4!c%1
+      - POSTGRES_USER=appuser
+    restart: on-failure
+
+  djapp:
+    image: restaurant:0.0.1
+    ports:
+      - "9444:8000"
+    volumes:
+      - ./data/static:/static
+      - ./data/upload:/upload
+    environment:
+      - SECRET_KEY='lm%edt0zzwvoajttdergk-3i+$ik=b0@i_omh%btt*c_h18d@c'
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=*
+      - APP_LOG_LEVEL='debug'
+      - APP_HOST=0.0.0.0
+      - APP_UPLOAD_DIR=/upload
+      - APP_STATIC_DIR=/static
+#      - APP_PORT=8000
+
+volumes:
+    restorant-db-data:
