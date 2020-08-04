@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from dotenv import load_dotenv
+load_dotenv(verbose=True)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lm%edt0zzwvoajttdergk-3i+$ik=b0@i_omh%btt*c_h18d@c'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'lm%edt0zzwvoajttdergk-3i+$ik=b0@i_omh%btt*c_h18d@c')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = '1' in (os.environ.get('DEBUG', '1'))
 
-ALLOWED_HOSTS = []
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
+ALLOWED_HOSTS = list(filter(None, os.environ.get("DJANGO_ALLOWED_HOSTS", ' ').split(" ")))
 
 
 # Application definition
