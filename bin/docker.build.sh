@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-SRC="restorant_proj"
+SRC="restaurant_proj"
 imageName="restaurant"
 serviceName="restaurant_img"
 imageRepo="$imageName"
 
-version="$(python $SRC/restorant_proj/settings.py)"
+version="$(python $SRC/restaurant_proj/settings.py)"
 echo $version
 
 dockerPath() {
