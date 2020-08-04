@@ -24,12 +24,12 @@ class CompanySerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(many=True, queryset=Product.objects.all())
+    products = ProductSerializer(many=True, queryset=Product.objects.all())
 
     class Meta:
         model = Order
         fields = [
             'user',
             'company',
-            'product',
+            'products',
         ]
