@@ -15,6 +15,13 @@ import os
 from dotenv import load_dotenv
 load_dotenv(verbose=True)
 
+VERSION = '0.0.1'
+
+if __name__ == '__main__':
+    print(VERSION)
+    exit(0)
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -134,7 +141,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+MEDIA_URL = '/upload/'
+MEDIA_ROOT = os.environ.get('APP_UPLOAD_DIR', 'upload')
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.environ.get('APP_STATIC_DIR', 'static')
 
 AUTH_USER_MODEL = 'restaraunt_api.User'
 
