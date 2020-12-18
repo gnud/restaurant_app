@@ -11,8 +11,11 @@ jobs:
       - checkout
       - python/load-cache
       - run:
+          working_directory: /home/circleci/circleci/project/restorant_proj/restorant_proj/restorant_proj/restorant_proj/
           name: install dependencies
-          command: pip install -r requirements.txt
+          command: |
+              pwd    
+              pip install -r requirements.txt
       - python/save-cache
       - run:
           command: ./manage.py test
