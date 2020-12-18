@@ -14,10 +14,7 @@ jobs:
           working_directory: /home/circleci/circleci/project/restorant_proj/restorant_proj/restorant_proj/restorant_proj/
           name: install dependencies
           command: |
-              pwd
-              ls
-              find . -name "requirements.txt"
-              pip install -r requirements.txt
+              pip install -r $(find . -name "requirements.txt")
       - python/save-cache
       - run:
           command: ./manage.py test
