@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build-and-test:
-    working_directory: ~/circleci/project/restorant_proj/restorant_proj/restorant_proj
+    working_directory: /home/circleci/circleci/project/restorant_proj/restorant_proj/restorant_proj/restorant_proj/
     executor: python/default
     steps:
       - checkout
